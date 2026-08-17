@@ -1,0 +1,323 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://docs.local/schemas/initiation-record.schema.json",
+  "title": "Initiation Record",
+  "description": "Structured schema for controlled project initiation records. Ensures consistent traceability of metadata, scope boundaries, stakeholders, assumptions, dependencies, decisions, and register references.",
+  "type": "object",
+  "required": [
+    "documentControl",
+    "objectives",
+    "scope",
+    "exclusions",
+    "assumptions",
+    "constraints",
+    "stakeholders",
+    "dependencies",
+    "decisions",
+    "registerReferences",
+    "approvalStatus"
+  ],
+  "properties": {
+    "documentControl": {
+      "type": "object",
+      "required": [
+        "documentId",
+        "title",
+        "documentOwner",
+        "version",
+        "status",
+        "reviewDate",
+        "approvalEvidence",
+        "changeHistory",
+        "templateReference"
+      ],
+      "properties": {
+        "documentId": { "type": "string", "pattern": "^[A-Z0-9-]+$" },
+        "title": { "type": "string", "minLength": 1 },
+        "documentOwner": {
+          "type": "object",
+          "required": ["role", "name"],
+          "properties": {
+            "role": { "type": "string" },
+            "name": { "type": "string" },
+            "organization": { "type": "string" }
+          }
+        },
+        "version": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$" },
+        "status": {
+          "type": "string",
+          "enum": [
+            "Draft — AI Prepared",
+            "Draft — Pending Human Review",
+            "In Review",
+            "Approved",
+            "Baseline",
+            "Superseded",
+            "Withdrawn"
+          ]
+        },
+        "reviewDate": { "type": "string", "format": "date" },
+        "effectiveDate": { "type": ["string", "null"], "format": "date" },
+        "classification": { "type": "string" },
+        "approvalEvidence": {
+          "type": "object",
+          "required": ["approvalRequired", "approvers", "evidenceLinks", "approvalNotes"],
+          "properties": {
+            "approvalRequired": { "type": "boolean" },
+            "approvers": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": ["role", "name", "decision"],
+                "properties": {
+                  "role": { "type": "string" },
+                  "name": { "type": "string" },
+                  "decision": {
+                    "type": "string",
+                    "enum": ["Pending", "Approved", "Rejected", "Deferred"]
+                  },
+                  "date": { "type": ["string", "null"], "format": "date" },
+                  "evidenceReference": { "type": ["string", "null"] }
+                }
+              }
+            },
+            "evidenceLinks": {
+              "type": "array",
+              "items": { "type": "string" }
+            },
+            "approvalNotes": { "type": "string" }
+          }
+        },
+        "changeHistory": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["version", "date", "author", "summary"],
+            "properties": {
+              "version": { "type": "string" },
+              "date": { "type": "string", "format": "date" },
+              "author": { "type": "string" },
+              "summary": { "type": "string" }
+            }
+          }
+        },
+        "templateReference": {
+          "type": "object",
+          "required": ["templateId", "templateVersion"],
+          "properties": {
+            "templateId": { "type": "string" },
+            "templateVersion": { "type": "string" }
+          }
+        }
+      }
+    },
+    "projectIdentity": {
+      "type": "object",
+      "properties": {
+        "projectName": { "type": "string" },
+        "epic": { "type": "string" },
+        "story": { "type": "string" },
+        "proposedSchedule": {
+          "type": "object",
+          "properties": {
+            "startDate": { "type": "string", "format": "date" },
+            "endDate": { "type": "string", "format": "date" },
+            "notes": { "type": "string" }
+          }
+        }
+      }
+    },
+    "objectives": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "statement"],
+        "properties": {
+          "id": { "type": "string" },
+          "statement": { "type": "string" },
+          "successMeasure": { "type": "string" }
+        }
+      }
+    },
+    "scope": {
+      "type": "object",
+      "required": ["inScope"],
+      "properties": {
+        "mvpBoundarySummary": { "type": "string" },
+        "inScope": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["id", "capability"],
+            "properties": {
+              "id": { "type": "string" },
+              "capability": { "type": "string" },
+              "notes": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    "exclusions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "item", "rationale", "reentryControl"],
+        "properties": {
+          "id": { "type": "string" },
+          "item": { "type": "string" },
+          "rationale": { "type": "string" },
+          "reentryControl": { "type": "string" }
+        }
+      }
+    },
+    "assumptions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "statement", "owner", "impactIfFalse"],
+        "properties": {
+          "id": { "type": "string" },
+          "statement": { "type": "string" },
+          "owner": { "type": "string" },
+          "impactIfFalse": { "type": "string" },
+          "validationMethod": { "type": "string" }
+        }
+      }
+    },
+    "constraints": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "statement", "type"],
+        "properties": {
+          "id": { "type": "string" },
+          "statement": { "type": "string" },
+          "type": {
+            "type": "string",
+            "enum": ["Schedule", "Resource", "Technical", "Regulatory", "Financial", "Operational", "Other"]
+          },
+          "owner": { "type": "string" }
+        }
+      }
+    },
+    "stakeholders": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "group", "interest", "decisionAuthority"],
+        "properties": {
+          "id": { "type": "string" },
+          "group": { "type": "string" },
+          "namedIndividuals": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "interest": { "type": "string" },
+          "decisionAuthority": { "type": "string" },
+          "engagementMode": { "type": "string" }
+        }
+      }
+    },
+    "dependencies": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "description", "type", "owner", "status"],
+        "properties": {
+          "id": { "type": "string" },
+          "description": { "type": "string" },
+          "type": {
+            "type": "string",
+            "enum": ["Internal", "External", "Technical", "Organizational"]
+          },
+          "owner": { "type": "string" },
+          "neededBy": { "type": ["string", "null"] },
+          "status": {
+            "type": "string",
+            "enum": ["Identified", "Confirmed", "At Risk", "Resolved", "Deferred"]
+          }
+        }
+      }
+    },
+    "decisions": {
+      "type": "object",
+      "required": ["recorded", "unresolved"],
+      "properties": {
+        "recorded": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["id", "question", "proposedPosition", "decisionOwner", "status"],
+            "properties": {
+              "id": { "type": "string" },
+              "question": { "type": "string" },
+              "proposedPosition": { "type": "string" },
+              "decisionOwner": { "type": "string" },
+              "status": {
+                "type": "string",
+                "enum": ["Proposed", "Accepted", "Rejected", "Superseded"]
+              },
+              "decisionRegisterRef": { "type": ["string", "null"] }
+            }
+          }
+        },
+        "unresolved": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["id", "question", "decisionOwner", "neededBy", "blockingImpact"],
+            "properties": {
+              "id": { "type": "string" },
+              "question": { "type": "string" },
+              "decisionOwner": { "type": "string" },
+              "neededBy": { "type": "string" },
+              "blockingImpact": { "type": "string" },
+              "decisionRegisterRef": { "type": ["string", "null"] }
+            }
+          }
+        }
+      }
+    },
+    "registerReferences": {
+      "type": "object",
+      "required": ["riskRegister", "issueRegister", "decisionRegister", "changeRegister"],
+      "properties": {
+        "riskRegister": { "$ref": "#/$defs/registerLink" },
+        "issueRegister": { "$ref": "#/$defs/registerLink" },
+        "decisionRegister": { "$ref": "#/$defs/registerLink" },
+        "changeRegister": { "$ref": "#/$defs/registerLink" }
+      }
+    },
+    "approvalStatus": {
+      "type": "object",
+      "required": ["baselineReady", "humanApprovalRequired", "notes"],
+      "properties": {
+        "baselineReady": { "type": "boolean" },
+        "humanApprovalRequired": { "type": "boolean" },
+        "scheduledApprovalWindow": { "type": ["string", "null"] },
+        "notes": { "type": "string" }
+      }
+    }
+  },
+  "$defs": {
+    "registerLink": {
+      "type": "object",
+      "required": ["registerId", "path", "version"],
+      "properties": {
+        "registerId": { "type": "string" },
+        "path": { "type": "string" },
+        "version": { "type": "string" },
+        "notes": { "type": "string" }
+      }
+    }
+  },
+  "additionalProperties": false,
+  "patternProperties": {
+    "^\\$schema$": { "type": "string" }
+  }
+}

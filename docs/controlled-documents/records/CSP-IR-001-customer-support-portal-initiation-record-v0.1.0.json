@@ -1,0 +1,518 @@
+{
+  "$schema": "../../schemas/initiation-record.schema.json",
+  "documentControl": {
+    "documentId": "CSP-IR-001",
+    "title": "Customer Support Portal — Initiation Record",
+    "documentOwner": {
+      "role": "Project Manager",
+      "name": "Designate — human owner confirmation required",
+      "organization": "Customer Support Portal Implementation"
+    },
+    "version": "0.1.0",
+    "status": "Draft — Pending Human Review",
+    "reviewDate": "2026-10-05",
+    "effectiveDate": null,
+    "classification": "Internal — Controlled Document",
+    "approvalEvidence": {
+      "approvalRequired": true,
+      "approvers": [
+        {
+          "role": "Executive sponsor",
+          "name": "Designate — human confirmation required",
+          "decision": "Pending",
+          "date": null,
+          "evidenceReference": null
+        },
+        {
+          "role": "Product Owner / Business owner",
+          "name": "Designate — human confirmation required",
+          "decision": "Pending",
+          "date": null,
+          "evidenceReference": null
+        },
+        {
+          "role": "Project Manager",
+          "name": "Designate — human confirmation required",
+          "decision": "Pending",
+          "date": null,
+          "evidenceReference": null
+        },
+        {
+          "role": "Availability-critical reviewer",
+          "name": "Chloe Zhang",
+          "decision": "Pending",
+          "date": null,
+          "evidenceReference": "Formal baseline review scheduled during October availability"
+        }
+      ],
+      "evidenceLinks": [],
+      "approvalNotes": "AI-prepared draft is not approval. Written human approval evidence is mandatory before baseline. Chloe Zhang's limited early availability requires asynchronous preparation and staged reviews."
+    },
+    "changeHistory": [
+      {
+        "version": "0.1.0",
+        "date": "2026-08-17",
+        "author": "AI Employee (asynchronous preparation)",
+        "summary": "Initial draft from TMPL-INIT-REC-001 v1.0.0 capturing proposed MVP boundary, stakeholders, assumptions, constraints, dependencies, deferred integrations, and unresolved decisions"
+      }
+    ],
+    "templateReference": {
+      "templateId": "TMPL-INIT-REC-001",
+      "templateVersion": "1.0.0"
+    }
+  },
+  "projectIdentity": {
+    "projectName": "Customer Support Portal Implementation",
+    "epic": "Project Initiation, Governance, and Delivery Baseline",
+    "story": "Document MVP boundaries, stakeholders, and initiation decisions",
+    "proposedSchedule": {
+      "startDate": "2026-10-05",
+      "endDate": "2027-03-26",
+      "notes": "Approximately 24 weeks; subject to formal confirmation during initiation."
+    }
+  },
+  "objectives": [
+    {
+      "id": "OBJ-001",
+      "statement": "Establish a controlled asynchronous initiation baseline for MVP scope, stakeholders, decision owners, assumptions, constraints, and dependencies",
+      "successMeasure": "CSP-IR-001 reviewed by designated humans and linked from the charter"
+    },
+    {
+      "id": "OBJ-002",
+      "statement": "Provide customers a consistent digital channel to submit, track, and communicate on support requests",
+      "successMeasure": "MVP capabilities SCP-001–SCP-007 accepted into the charter baseline"
+    },
+    {
+      "id": "OBJ-003",
+      "statement": "Provide support operations with structured workflows, RBAC, workload visibility, and service-performance reporting foundations",
+      "successMeasure": "Reporting/dashboard MVP scope accepted; deferred analytics remain out of scope pending change control"
+    },
+    {
+      "id": "OBJ-004",
+      "statement": "Preserve clear change-control boundaries for deferred integrations",
+      "successMeasure": "CRM, monitoring, survey, SLA-automation, and additional channels explicitly excluded unless approved via CSP-REG-CHG-001"
+    }
+  ],
+  "scope": {
+    "mvpBoundarySummary": "The initial release delivers customer request management, ticket workflow management, role-based access control, ticket communication, email and/or in-app notifications, searchable knowledge resources, and operational reporting/dashboards. CRM, monitoring-system, survey, SLA-automation, and additional-channel integrations remain out of MVP unless separately approved through change control.",
+    "inScope": [
+      {
+        "id": "SCP-001",
+        "capability": "Customer request management",
+        "notes": "Request creation, attachment upload, request history, status tracking, and reopening where permitted"
+      },
+      {
+        "id": "SCP-002",
+        "capability": "Ticket workflow management",
+        "notes": "Categorization, prioritization, assignment, status transitions, escalation handling, resolution, closure, and audit history"
+      },
+      {
+        "id": "SCP-003",
+        "capability": "Role-based access control",
+        "notes": "Access for customers, support agents, team leads, and administrators"
+      },
+      {
+        "id": "SCP-004",
+        "capability": "Ticket communication",
+        "notes": "Customer-agent comments/updates with an auditable conversation record"
+      },
+      {
+        "id": "SCP-005",
+        "capability": "Notifications",
+        "notes": "Email and/or in-app notifications for material ticket lifecycle events"
+      },
+      {
+        "id": "SCP-006",
+        "capability": "Knowledge resources",
+        "notes": "Searchable help articles, FAQs, and guidance for customer self-service"
+      },
+      {
+        "id": "SCP-007",
+        "capability": "Reporting and dashboards",
+        "notes": "Ticket volume, backlog, workload, priorities, resolution performance, and service-level trends"
+      }
+    ]
+  },
+  "exclusions": [
+    {
+      "id": "EXC-001",
+      "item": "CRM integration",
+      "rationale": "Future-phase capability; not required to establish portal system of record for MVP",
+      "reentryControl": "Requires separately approved change request in CSP-REG-CHG-001 before inclusion"
+    },
+    {
+      "id": "EXC-002",
+      "item": "Monitoring-system integration",
+      "rationale": "Future-phase operational integration; deferred from MVP",
+      "reentryControl": "Requires separately approved change request in CSP-REG-CHG-001 before inclusion"
+    },
+    {
+      "id": "EXC-003",
+      "item": "Customer satisfaction survey integration",
+      "rationale": "Future-phase feedback mechanism; deferred from MVP",
+      "reentryControl": "Requires separately approved change request in CSP-REG-CHG-001 before inclusion"
+    },
+    {
+      "id": "EXC-004",
+      "item": "SLA automation",
+      "rationale": "Future-phase automation beyond reporting trends; deferred from MVP",
+      "reentryControl": "Requires separately approved change request in CSP-REG-CHG-001 before inclusion"
+    },
+    {
+      "id": "EXC-005",
+      "item": "Additional support-channel integrations",
+      "rationale": "MVP focuses on the portal channel; other channels deferred",
+      "reentryControl": "Requires separately approved change request in CSP-REG-CHG-001 before inclusion"
+    },
+    {
+      "id": "EXC-006",
+      "item": "Identity-provider integration beyond MVP RBAC needs",
+      "rationale": "May be introduced in future phases; confirm during human design reviews",
+      "reentryControl": "Requires separately approved change request in CSP-REG-CHG-001 if beyond MVP access model"
+    },
+    {
+      "id": "EXC-007",
+      "item": "Enhanced analytics beyond MVP dashboards",
+      "rationale": "Continuous-improvement vision; not MVP",
+      "reentryControl": "Requires separately approved change request in CSP-REG-CHG-001 before inclusion"
+    },
+    {
+      "id": "EXC-008",
+      "item": "Knowledge-base governance improvements beyond searchable articles/FAQs",
+      "rationale": "Future-phase governance maturity",
+      "reentryControl": "Requires separately approved change request in CSP-REG-CHG-001 before inclusion"
+    }
+  ],
+  "assumptions": [
+    {
+      "id": "ASM-001",
+      "statement": "Designated business stakeholders will complete workshops, interviews, and written approvals outside AI preparation",
+      "owner": "Executive sponsor / Project Manager",
+      "impactIfFalse": "Baseline cannot be approved; charter remains blocked",
+      "validationMethod": "Human confirmation during staged October reviews"
+    },
+    {
+      "id": "ASM-002",
+      "statement": "Chloe Zhang can participate in formal baseline approval during October 2026 availability",
+      "owner": "Chloe Zhang / Project Manager",
+      "impactIfFalse": "Approval window slips; schedule re-baseline required",
+      "validationMethod": "Calendar confirmation by Project Manager"
+    },
+    {
+      "id": "ASM-003",
+      "statement": "MVP can deliver value without CRM, monitoring, survey, SLA-automation, or additional-channel integrations",
+      "owner": "Product Owner / Support SME",
+      "impactIfFalse": "Scope pressure; requires change requests or re-prioritization",
+      "validationMethod": "Human scope workshop"
+    },
+    {
+      "id": "ASM-004",
+      "statement": "Email and/or in-app channels are sufficient for MVP notifications",
+      "owner": "Technical Lead / Product Owner",
+      "impactIfFalse": "Notification design rework; possible external dependency",
+      "validationMethod": "Design review"
+    },
+    {
+      "id": "ASM-005",
+      "statement": "Existing support operating model can adopt portal workflows with training during UAT/release prep",
+      "owner": "Business Analyst / Support SME",
+      "impactIfFalse": "Adoption risk; extended hypercare or process redesign",
+      "validationMethod": "SME interview / UAT planning"
+    },
+    {
+      "id": "ASM-006",
+      "statement": "Repository will retain requirements, decisions, risks, test evidence, and approved changes as the audit trail",
+      "owner": "Project Manager",
+      "impactIfFalse": "Governance gaps; auditability weakened",
+      "validationMethod": "PMO process confirmation"
+    }
+  ],
+  "constraints": [
+    {
+      "id": "CON-001",
+      "statement": "Chloe Zhang has limited early availability; initiation must be asynchronous with staged reviews",
+      "type": "Resource",
+      "owner": "Project Manager"
+    },
+    {
+      "id": "CON-002",
+      "statement": "Formal baseline approval targeted to October 2026 availability window",
+      "type": "Schedule",
+      "owner": "Executive sponsor"
+    },
+    {
+      "id": "CON-003",
+      "statement": "Practical baseline schedule target is 2026-10-05 through 2027-03-26 (~24 weeks), pending confirmation",
+      "type": "Schedule",
+      "owner": "Project Manager"
+    },
+    {
+      "id": "CON-004",
+      "statement": "Deferred integrations must not be implemented as silent scope creep",
+      "type": "Operational",
+      "owner": "Product Owner / Project Manager"
+    },
+    {
+      "id": "CON-005",
+      "statement": "Delivery must retain governed artefacts in the project repository",
+      "type": "Regulatory",
+      "owner": "PMO / Project Manager"
+    },
+    {
+      "id": "CON-006",
+      "statement": "Solution must support secure, role-based access and auditable ticket lifecycle",
+      "type": "Technical",
+      "owner": "Technical Lead / DevOps/Security Engineer"
+    }
+  ],
+  "stakeholders": [
+    {
+      "id": "STK-001",
+      "group": "Executive sponsor",
+      "namedIndividuals": [],
+      "interest": "Strategic outcomes, funding, baseline approval",
+      "decisionAuthority": "Approve/reject initiation baseline and major scope changes",
+      "engagementMode": "Staged review; formal October approval"
+    },
+    {
+      "id": "STK-002",
+      "group": "Product Owner / Support SME",
+      "namedIndividuals": [],
+      "interest": "MVP boundary, workflow fitness, acceptance",
+      "decisionAuthority": "Own product scope decisions; contribute to baseline",
+      "engagementMode": "Asynchronous review + workshops"
+    },
+    {
+      "id": "STK-003",
+      "group": "Availability-critical business stakeholder",
+      "namedIndividuals": ["Chloe Zhang"],
+      "interest": "Timing of formal baseline approval",
+      "decisionAuthority": "Participate in/confirm October approval window",
+      "engagementMode": "Asynchronous prep now; formal review in October"
+    },
+    {
+      "id": "STK-004",
+      "group": "Project Manager / PMO",
+      "namedIndividuals": [],
+      "interest": "Schedule, registers, change control, traceability",
+      "decisionAuthority": "Maintain controlled documents; escalate unresolved decisions",
+      "engagementMode": "Asynchronous preparation and cadence"
+    },
+    {
+      "id": "STK-005",
+      "group": "Technical Lead & Full-Stack Developers",
+      "namedIndividuals": [],
+      "interest": "Feasibility of MVP scope and architecture",
+      "decisionAuthority": "Technical recommendations; not sole business approvers",
+      "engagementMode": "Design reviews"
+    },
+    {
+      "id": "STK-006",
+      "group": "DevOps / Security Engineer",
+      "namedIndividuals": [],
+      "interest": "Access, notifications infrastructure, security posture",
+      "decisionAuthority": "Security/ops constraints on scope",
+      "engagementMode": "Technical review"
+    },
+    {
+      "id": "STK-007",
+      "group": "Business Analyst / Support SME",
+      "namedIndividuals": [],
+      "interest": "Process mapping, reporting needs",
+      "decisionAuthority": "Requirements clarity inputs",
+      "engagementMode": "Interviews/workshops (human-only)"
+    },
+    {
+      "id": "STK-008",
+      "group": "UX Designer",
+      "namedIndividuals": [],
+      "interest": "Usability of portal journeys",
+      "decisionAuthority": "Design recommendations",
+      "engagementMode": "Design reviews"
+    },
+    {
+      "id": "STK-009",
+      "group": "QA Engineers",
+      "namedIndividuals": [],
+      "interest": "Testability, quality gates, release readiness",
+      "decisionAuthority": "Quality gate evidence",
+      "engagementMode": "Test planning after baseline"
+    },
+    {
+      "id": "STK-010",
+      "group": "Support agents, team leads, administrators (operational users)",
+      "namedIndividuals": [],
+      "interest": "Day-to-day workflow fitness",
+      "decisionAuthority": "Feedback; not initiation approvers",
+      "engagementMode": "Later UAT (human-only)"
+    },
+    {
+      "id": "STK-011",
+      "group": "Customers (end users of portal)",
+      "namedIndividuals": [],
+      "interest": "Request submission, tracking, communication experience",
+      "decisionAuthority": "Feedback via Product Owner; not initiation approvers",
+      "engagementMode": "Later UAT / research (human-only)"
+    }
+  ],
+  "dependencies": [
+    {
+      "id": "DEP-001",
+      "description": "Human workshops/interviews to validate MVP boundary and assumptions",
+      "type": "Organizational",
+      "owner": "Product Owner / Project Manager",
+      "neededBy": "2026-10-05",
+      "status": "Identified"
+    },
+    {
+      "id": "DEP-002",
+      "description": "Written approval from designated approvers including Chloe Zhang's October participation",
+      "type": "Organizational",
+      "owner": "Executive sponsor / Project Manager",
+      "neededBy": "2026-10-31",
+      "status": "Identified"
+    },
+    {
+      "id": "DEP-003",
+      "description": "Confirmation of notification approach (email and/or in-app) and related platform prerequisites",
+      "type": "Technical",
+      "owner": "Technical Lead",
+      "neededBy": null,
+      "status": "Identified"
+    },
+    {
+      "id": "DEP-004",
+      "description": "Access to controlled documentation database and register maintenance process",
+      "type": "Organizational",
+      "owner": "PMO / Project Manager",
+      "neededBy": "2026-08-17",
+      "status": "Confirmed"
+    },
+    {
+      "id": "DEP-005",
+      "description": "Downstream charter and governance baseline artefacts consuming this record",
+      "type": "Internal",
+      "owner": "Project Manager",
+      "neededBy": null,
+      "status": "Identified"
+    },
+    {
+      "id": "DEP-006",
+      "description": "External CRM / monitoring / survey / SLA / additional-channel systems",
+      "type": "External",
+      "owner": "Product Owner",
+      "neededBy": null,
+      "status": "Deferred"
+    },
+    {
+      "id": "DEP-007",
+      "description": "Security/compliance review of RBAC and audit history approach",
+      "type": "Organizational",
+      "owner": "DevOps/Security Engineer",
+      "neededBy": null,
+      "status": "Identified"
+    }
+  ],
+  "decisions": {
+    "recorded": [
+      {
+        "id": "DEC-001",
+        "question": "What is the proposed MVP boundary?",
+        "proposedPosition": "Capabilities SCP-001–SCP-007; exclusions EXC-001–EXC-008",
+        "decisionOwner": "Product Owner / Support SME + Executive sponsor",
+        "status": "Proposed",
+        "decisionRegisterRef": "CSP-REG-DEC-001#DEC-001"
+      },
+      {
+        "id": "DEC-002",
+        "question": "Which integrations are deferred from MVP?",
+        "proposedPosition": "CRM, monitoring-system, survey, SLA-automation, and additional-channel integrations are deferred unless approved via change control",
+        "decisionOwner": "Product Owner + Project Manager",
+        "status": "Proposed",
+        "decisionRegisterRef": "CSP-REG-DEC-001#DEC-001"
+      },
+      {
+        "id": "DEC-003",
+        "question": "How are stakeholder groups and decision owners defined for initiation?",
+        "proposedPosition": "Stakeholder table and approval evidence roles in CSP-IR-001",
+        "decisionOwner": "Executive sponsor",
+        "status": "Proposed",
+        "decisionRegisterRef": "CSP-REG-DEC-001#DEC-002"
+      },
+      {
+        "id": "DEC-004",
+        "question": "What is the practical delivery window to propose?",
+        "proposedPosition": "2026-10-05 through 2027-03-26, subject to confirmation",
+        "decisionOwner": "Project Manager + Executive sponsor",
+        "status": "Proposed",
+        "decisionRegisterRef": "CSP-REG-DEC-001#UND-002"
+      }
+    ],
+    "unresolved": [
+      {
+        "id": "UND-001",
+        "question": "Confirm formal baseline approval timing during Chloe Zhang's October availability",
+        "decisionOwner": "Chloe Zhang / Executive sponsor",
+        "neededBy": "2026-10-31",
+        "blockingImpact": "Blocks baseline status transition",
+        "decisionRegisterRef": "CSP-REG-DEC-001#UND-001"
+      },
+      {
+        "id": "UND-002",
+        "question": "Confirm or revise the 24-week schedule window",
+        "decisionOwner": "Project Manager + Executive sponsor",
+        "neededBy": "2026-10-05",
+        "blockingImpact": "Blocks charter schedule baseline",
+        "decisionRegisterRef": "CSP-REG-DEC-001#UND-002"
+      },
+      {
+        "id": "UND-003",
+        "question": "Name permanent human document owner, Product Owner, and Executive sponsor on this record",
+        "decisionOwner": "Executive sponsor / PMO",
+        "neededBy": "2026-10-05",
+        "blockingImpact": "Blocks approval evidence completion",
+        "decisionRegisterRef": "CSP-REG-DEC-001"
+      },
+      {
+        "id": "UND-004",
+        "question": "Confirm whether identity-provider integration is required inside MVP RBAC or remains deferred",
+        "decisionOwner": "Technical Lead + Product Owner + Security",
+        "neededBy": "Design phase / baseline refinement",
+        "blockingImpact": "May alter SCP-003 / EXC-006",
+        "decisionRegisterRef": "CSP-REG-DEC-001"
+      }
+    ]
+  },
+  "registerReferences": {
+    "riskRegister": {
+      "registerId": "CSP-REG-RISK-001",
+      "path": "docs/registers/CSP-REG-RISK-001-risk-register.md",
+      "version": "0.1.0",
+      "notes": "Placeholder; populate in human risk workshop"
+    },
+    "issueRegister": {
+      "registerId": "CSP-REG-ISSUE-001",
+      "path": "docs/registers/CSP-REG-ISSUE-001-issue-register.md",
+      "version": "0.1.0",
+      "notes": "Placeholder"
+    },
+    "decisionRegister": {
+      "registerId": "CSP-REG-DEC-001",
+      "path": "docs/registers/CSP-REG-DEC-001-decision-register.md",
+      "version": "0.1.0",
+      "notes": "Seeded with DEC/UND refs from this record"
+    },
+    "changeRegister": {
+      "registerId": "CSP-REG-CHG-001",
+      "path": "docs/registers/CSP-REG-CHG-001-change-register.md",
+      "version": "0.1.0",
+      "notes": "Gate for deferred integration re-entry"
+    }
+  },
+  "approvalStatus": {
+    "baselineReady": false,
+    "humanApprovalRequired": true,
+    "scheduledApprovalWindow": "October 2026 (aligned to Chloe Zhang availability)",
+    "notes": "This initiation record is a traceable input to the charter and governance baseline; it does not substitute for stakeholder decisions. Live workshops, interviews, and approvals are human-only."
+  }
+}

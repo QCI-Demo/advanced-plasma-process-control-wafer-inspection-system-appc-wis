@@ -1,0 +1,183 @@
+{
+  "$schema": "../../schemas/initiation-record.schema.json",
+  "documentControl": {
+    "documentId": "{{DOCUMENT_ID}}",
+    "title": "{{TITLE}}",
+    "documentOwner": {
+      "role": "{{OWNER_ROLE}}",
+      "name": "{{OWNER_NAME}}",
+      "organization": "{{OWNER_ORG}}"
+    },
+    "version": "0.1.0",
+    "status": "Draft — Pending Human Review",
+    "reviewDate": "YYYY-MM-DD",
+    "effectiveDate": null,
+    "classification": "Internal — Controlled Document",
+    "approvalEvidence": {
+      "approvalRequired": true,
+      "approvers": [
+        {
+          "role": "Executive sponsor",
+          "name": "{{SPONSOR_NAME}}",
+          "decision": "Pending",
+          "date": null,
+          "evidenceReference": null
+        },
+        {
+          "role": "Product Owner / Business owner",
+          "name": "{{PO_NAME}}",
+          "decision": "Pending",
+          "date": null,
+          "evidenceReference": null
+        },
+        {
+          "role": "Project Manager",
+          "name": "{{PM_NAME}}",
+          "decision": "Pending",
+          "date": null,
+          "evidenceReference": null
+        }
+      ],
+      "evidenceLinks": [],
+      "approvalNotes": "AI-prepared draft is not approval. Written human approval evidence is mandatory before baseline."
+    },
+    "changeHistory": [
+      {
+        "version": "0.1.0",
+        "date": "YYYY-MM-DD",
+        "author": "{{AUTHOR}}",
+        "summary": "Initial draft created from TMPL-INIT-REC-001 v1.0.0"
+      }
+    ],
+    "templateReference": {
+      "templateId": "TMPL-INIT-REC-001",
+      "templateVersion": "1.0.0"
+    }
+  },
+  "projectIdentity": {
+    "projectName": "{{PROJECT_NAME}}",
+    "epic": "{{EPIC}}",
+    "story": "{{STORY}}",
+    "proposedSchedule": {
+      "startDate": "YYYY-MM-DD",
+      "endDate": "YYYY-MM-DD",
+      "notes": "Subject to formal confirmation during initiation."
+    }
+  },
+  "objectives": [
+    {
+      "id": "OBJ-001",
+      "statement": "",
+      "successMeasure": ""
+    }
+  ],
+  "scope": {
+    "mvpBoundarySummary": "",
+    "inScope": [
+      {
+        "id": "SCP-001",
+        "capability": "",
+        "notes": ""
+      }
+    ]
+  },
+  "exclusions": [
+    {
+      "id": "EXC-001",
+      "item": "",
+      "rationale": "",
+      "reentryControl": "Requires separately approved change request in the Change Register before inclusion."
+    }
+  ],
+  "assumptions": [
+    {
+      "id": "ASM-001",
+      "statement": "",
+      "owner": "",
+      "impactIfFalse": "",
+      "validationMethod": "Human workshop, interview, or written confirmation"
+    }
+  ],
+  "constraints": [
+    {
+      "id": "CON-001",
+      "statement": "",
+      "type": "Schedule",
+      "owner": ""
+    }
+  ],
+  "stakeholders": [
+    {
+      "id": "STK-001",
+      "group": "",
+      "namedIndividuals": [],
+      "interest": "",
+      "decisionAuthority": "",
+      "engagementMode": "Asynchronous review; formal approval by designated humans"
+    }
+  ],
+  "dependencies": [
+    {
+      "id": "DEP-001",
+      "description": "",
+      "type": "External",
+      "owner": "",
+      "neededBy": null,
+      "status": "Identified"
+    }
+  ],
+  "decisions": {
+    "recorded": [
+      {
+        "id": "DEC-001",
+        "question": "",
+        "proposedPosition": "",
+        "decisionOwner": "",
+        "status": "Proposed",
+        "decisionRegisterRef": null
+      }
+    ],
+    "unresolved": [
+      {
+        "id": "UND-001",
+        "question": "",
+        "decisionOwner": "",
+        "neededBy": "",
+        "blockingImpact": "",
+        "decisionRegisterRef": null
+      }
+    ]
+  },
+  "registerReferences": {
+    "riskRegister": {
+      "registerId": "{{RISK_REGISTER_ID}}",
+      "path": "docs/registers/{{RISK_REGISTER_FILE}}",
+      "version": "0.1.0",
+      "notes": ""
+    },
+    "issueRegister": {
+      "registerId": "{{ISSUE_REGISTER_ID}}",
+      "path": "docs/registers/{{ISSUE_REGISTER_FILE}}",
+      "version": "0.1.0",
+      "notes": ""
+    },
+    "decisionRegister": {
+      "registerId": "{{DECISION_REGISTER_ID}}",
+      "path": "docs/registers/{{DECISION_REGISTER_FILE}}",
+      "version": "0.1.0",
+      "notes": ""
+    },
+    "changeRegister": {
+      "registerId": "{{CHANGE_REGISTER_ID}}",
+      "path": "docs/registers/{{CHANGE_REGISTER_FILE}}",
+      "version": "0.1.0",
+      "notes": ""
+    }
+  },
+  "approvalStatus": {
+    "baselineReady": false,
+    "humanApprovalRequired": true,
+    "scheduledApprovalWindow": null,
+    "notes": "This initiation record is a traceable input to the charter and governance baseline; it does not substitute for stakeholder decisions."
+  }
+}
