@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tymeline Typography Scale — DS-TYPE-001</title>
+  <link rel="stylesheet" href="./typography.tokens.css" />
+  <style>
+    :root {
+      --ink: #1A1A2E;
+      --ink-dim: #4A4A5E;
+      --ink-mute: #7A7A8E;
+      --paper: #FFFFFF;
+      --paper-3: #F7F8FA;
+      --line: #E8EAEE;
+      --copper: #F05A3C;
+      --copper-soft: #FFF0EB;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background:
+        radial-gradient(1200px 600px at 10% -10%, #FFF0EB 0%, transparent 55%),
+        linear-gradient(180deg, #FAFAF8 0%, #F0F2F6 100%);
+      color: var(--ink);
+      font-family: var(--font-family-sans);
+    }
+    .wrap { max-width: 920px; margin: 0 auto; padding: 48px 24px 80px; }
+    header { margin-bottom: 40px; }
+    .eyebrow {
+      font-family: var(--font-family-mono);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--copper);
+      margin-bottom: 12px;
+    }
+    .brand-title {
+      font-family: var(--font-family-serif);
+      font-size: clamp(2.25rem, 4vw, 3.25rem);
+      font-weight: 500;
+      line-height: 1.08;
+      letter-spacing: -0.024em;
+      margin: 0 0 12px;
+    }
+    .brand-title em { font-style: italic; color: var(--copper); font-weight: 400; }
+    .intro { color: var(--ink-dim); font-size: 17px; line-height: 1.7; max-width: 65ch; margin: 0; }
+    .panel {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 28px 28px 8px;
+      margin-bottom: 24px;
+    }
+    .panel h2 {
+      font-family: var(--font-family-mono);
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-mute);
+      font-weight: 700;
+      margin: 0 0 20px;
+    }
+    .row {
+      display: grid;
+      grid-template-columns: 1fr 220px;
+      gap: 16px;
+      align-items: baseline;
+      padding: 16px 0;
+      border-top: 1px solid var(--line);
+    }
+    .row:first-of-type { border-top: none; }
+    .meta {
+      font-family: var(--font-family-mono);
+      font-size: 11px;
+      color: var(--ink-mute);
+      line-height: 1.45;
+      text-align: right;
+    }
+    .a11y {
+      background: var(--copper-soft);
+      border: 1px solid var(--copper);
+      border-radius: 12px;
+      padding: 20px 24px;
+    }
+    .a11y h2 { margin: 0 0 8px; font-size: 16px; font-weight: 600; }
+    .a11y ul { margin: 0; padding-left: 1.2rem; color: var(--ink-dim); line-height: 1.55; }
+    @media (max-width: 640px) {
+      .row { grid-template-columns: 1fr; }
+      .meta { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <header>
+      <p class="eyebrow">DS-TYPE-001 · v1.0.0</p>
+      <h1 class="brand-title">Typography <em>scale</em></h1>
+      <p class="intro">Approved brand faces — Fraunces, Inter, and JetBrains Mono — with product UI sizes, weights, and line-heights for the Tymeline Customer Experience Platform.</p>
+    </header>
+
+    <section class="panel" aria-label="Headings">
+      <h2>Headings</h2>
+      <div class="row"><div class="text-heading-xl">Heading XL — Activity timeline</div><div class="meta">Inter 32 / 600 / 1.25</div></div>
+      <div class="row"><div class="text-heading-lg">Heading LG — This week</div><div class="meta">Inter 24 / 600 / 1.30</div></div>
+      <div class="row"><div class="text-heading-md">Heading MD — Open tasks</div><div class="meta">Inter 20 / 600 / 1.35</div></div>
+      <div class="row"><div class="text-heading-sm">Heading SM — Review API contract</div><div class="meta">Inter 18 / 600 / 1.40</div></div>
+      <div class="row"><div class="text-display-sm">Display SM — brand empty state</div><div class="meta">Fraunces 32 / 500 / 1.15</div></div>
+    </section>
+
+    <section class="panel" aria-label="Body and captions">
+      <h2>Body · labels · captions</h2>
+      <div class="row"><div class="text-body-lg">Body LG — Supporting lede for section context and stakeholder-facing summaries.</div><div class="meta">Inter 18 / 400 / 1.65</div></div>
+      <div class="row"><div class="text-body-md">Body MD — Default paragraph for task descriptions, comments, and help content. Line-height 1.5 meets WCAG text-spacing guidance.</div><div class="meta">Inter 16 / 400 / 1.50</div></div>
+      <div class="row"><div class="text-body-sm">Body SM — Compact copy for dense tables and secondary metadata rows.</div><div class="meta">Inter 14 / 400 / 1.50</div></div>
+      <div class="row"><div class="text-label-md">Label MD — Due date</div><div class="meta">Inter 14 / 500 / 1.40</div></div>
+      <div class="row"><div class="text-caption-md">Caption MD — Helper text and field guidance (12px essential floor).</div><div class="meta">Inter 12 / 400 / 1.45</div></div>
+      <div class="row"><div class="text-overline">Section overline</div><div class="meta">Mono 11 / 600 / 0.14em</div></div>
+      <div class="row"><div class="text-code-md">task_id: TM-1842 · 2026-09-18T22:00Z</div><div class="meta">Mono 14 / 500 / 1.50</div></div>
+    </section>
+
+    <aside class="a11y">
+      <h2>Accessibility notes</h2>
+      <ul>
+        <li>Primary body ≥ 16px; essential captions ≥ 12px.</li>
+        <li>Paragraph line-height ≥ 1.5; rem-based scale for 200% zoom.</li>
+        <li>Normal text contrast ≥ 4.5:1 against background (pairs with color tokens).</li>
+        <li>Reading measure ≤ 75ch; avoid all-caps for long sentences.</li>
+      </ul>
+    </aside>
+  </main>
+</body>
+</html>

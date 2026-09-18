@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="720" viewBox="0 0 960 720" role="img" aria-labelledby="title desc">
+  <title id="title">Tymeline typography hierarchy</title>
+  <desc id="desc">Visual scale from brand display through headings, body, captions, and mono overlines using Fraunces, Inter, and JetBrains Mono.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FAFAF8"/>
+      <stop offset="100%" stop-color="#EEF0F4"/>
+    </linearGradient>
+    <style>
+      .label { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.14em; fill: #C8341A; text-transform: uppercase; }
+      .meta { font-family: 'Inter', system-ui, sans-serif; font-size: 12px; fill: #7A7A8E; }
+      .serif { font-family: 'Fraunces', Georgia, serif; fill: #1A1A2E; }
+      .sans { font-family: 'Inter', system-ui, sans-serif; fill: #1A1A2E; }
+      .mono { font-family: 'JetBrains Mono', ui-monospace, monospace; fill: #1A1A2E; }
+      .rule { stroke: #D8DCE3; stroke-width: 1; }
+      .card { fill: #FFFFFF; stroke: #E8EAEE; stroke-width: 1; }
+    </style>
+  </defs>
+
+  <rect width="960" height="720" fill="url(#bg)"/>
+  <rect x="32" y="28" width="896" height="64" rx="8" class="card"/>
+  <text x="52" y="54" class="label">DS-TYPE-001 · v1.0.0</text>
+  <text x="52" y="78" class="sans" style="font-size:22px;font-weight:600;">Tymeline typography hierarchy</text>
+  <text x="620" y="68" class="meta">Fraunces · Inter · JetBrains Mono</text>
+
+  <!-- Brand column -->
+  <rect x="32" y="112" width="440" height="280" rx="10" class="card"/>
+  <text x="52" y="140" class="label">Brand / marketing</text>
+  <text x="52" y="188" class="serif" style="font-size:40px;font-weight:500;letter-spacing:-1px;">Display XL</text>
+  <text x="300" y="180" class="meta">4276px / 500 / 1.02</text>
+  <line x1="52" y1="208" x2="440" y2="208" class="rule"/>
+  <text x="52" y="248" class="serif" style="font-size:30px;font-weight:500;">Display LG</text>
+  <text x="300" y="242" class="meta">3252px / 500 / 1.08</text>
+  <line x1="52" y1="268" x2="440" y2="268" class="rule"/>
+  <text x="52" y="304" class="serif" style="font-size:24px;font-weight:500;">Display MD</text>
+  <text x="300" y="298" class="meta">24px / 500 / 1.25</text>
+  <line x1="52" y1="324" x2="440" y2="324" class="rule"/>
+  <text x="52" y="360" class="sans" style="font-size:17px;font-weight:400;">Brand lede  Inter 17 / 400 / 1.70</text>
+
+  <!-- Product column -->
+  <rect x="488" y="112" width="440" height="280" rx="10" class="card"/>
+  <text x="508" y="140" class="label">Product UI (CX)</text>
+  <text x="508" y="178" class="sans" style="font-size:32px;font-weight:600;">Heading XL</text>
+  <text x="760" y="172" class="meta">32 / 600 / 1.25</text>
+  <text x="508" y="218" class="sans" style="font-size:24px;font-weight:600;">Heading LG</text>
+  <text x="760" y="212" class="meta">24 / 600 / 1.30</text>
+  <text x="508" y="252" class="sans" style="font-size:20px;font-weight:600;">Heading MD</text>
+  <text x="760" y="246" class="meta">20 / 600 / 1.35</text>
+  <text x="508" y="284" class="sans" style="font-size:18px;font-weight:600;">Heading SM</text>
+  <text x="760" y="278" class="meta">18 / 600 / 1.40</text>
+  <line x1="508" y1="300" x2="896" y2="300" class="rule"/>
+  <text x="508" y="332" class="sans" style="font-size:16px;font-weight:400;">Body MD  16px / 400 / 1.50 (AA floor)</text>
+  <text x="508" y="362" class="sans" style="font-size:14px;font-weight:400;">Body SM  14px / 400 / 1.50</text>
+
+  <!-- Captions & mono -->
+  <rect x="32" y="412" width="896" height="180" rx="10" class="card"/>
+  <text x="52" y="440" class="label">Captions · labels · mono</text>
+  <text x="52" y="478" class="sans" style="font-size:14px;font-weight:500;">Label MD  Inter 14 / 500 / 1.40</text>
+  <text x="420" y="478" class="sans" style="font-size:12px;font-weight:400;">Caption MD  Inter 12 / 400 / 1.45 (essential floor)</text>
+  <text x="52" y="518" class="mono" style="font-size:11px;font-weight:600;letter-spacing:2px;">OVERLINE  JETBRAINS MONO 11 / 600 / 0.14EM</text>
+  <text x="52" y="558" class="mono" style="font-size:14px;font-weight:500;">Code MD  JetBrains Mono 14 / 500 / 1.50 · tabular nums</text>
+
+  <!-- A11y callout -->
+  <rect x="32" y="612" width="896" height="80" rx="10" fill="#FFF0EB" stroke="#F05A3C" stroke-width="1"/>
+  <text x="52" y="642" class="label" style="fill:#C8341A;">Accessibility</text>
+  <text x="52" y="668" class="sans" style="font-size:13px;fill:#1A1A2E;">Body e 16px · caption e 12px · line-height e 1.5 for paragraphs · contrast e 4.5:1 (normal) · rem sizing for 200% zoom · measure d 75ch</text>
+</svg>
